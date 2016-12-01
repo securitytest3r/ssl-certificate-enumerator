@@ -42,6 +42,7 @@ parser.add_argument('-b', '--validfrom', help='Show SSL certicate validty from',
 parser.add_argument('-e', '--expired', help='Show SSL certicate is expired or not', action='store_true')
 parser.add_argument('-n', '--serialno', help='Show SSL certicate serial number', action='store_true')
 parser.add_argument('-s', '--signalgo', help='Show SSL certicate signature algorithm', action='store_true')
+parser.add_argument('-l', '--keylen', help='Show key length in bits', action='store_true')
 parser.add_argument('-v', '--certver', help='Show SSL certicate version', action='store_true')
 #parser.add_argument('-k', '--publickey', help='Show SSL certicate public key', action='store_true')
 parser.add_argument('-z', '--tls12method', help='Use TLS1_2_METHOD', action='store_true')
@@ -80,6 +81,8 @@ if args.inputfile:
 			output_file_head += "Serial Number,"
 		if args.signalgo:
 			output_file_head += "Signature Algorithm,"
+		if args.keylen:
+			output_file_head += "Key Length,"
 		if args.certver:
 			output_file_head += "Certificate Version,"
 		output_file_head = output_file_head[:-1] + "\n"
@@ -121,6 +124,8 @@ if args.inputfile:
 			ssl_cert_data += str(certicate_info.get_serial_number()) + ","
 		if args.signalgo:
 			ssl_cert_data += certicate_info.get_signature_algorithm() + ","
+		if args.keylen:
+			ssl_cert_data += str(certicate_info.get_pubkey().bits()) + ","
 		if args.certver:
 			ssl_cert_data += str(certicate_info.get_version()) + ","
 		ssl_cert_data = ssl_cert_data[:-1]
@@ -161,6 +166,7 @@ if args.target and args.port:
 		print "Certificate Expired: No"
 	print "Certificate Serial Number: %d" % (certicate_info.get_serial_number())
 	print "Signature Algorithm: %s" % (certicate_info.get_signature_algorithm())
+	print "Signature Algorithm: %s" % (certicate_info.get_pubkey().bits())
 	print "Certificate Version: %d" % (certicate_info.get_version())
 	#print "Public Key: %s" % ((certicate_info.get_pubkey()).type())
 	#print ": %s" % (certicate_info.)
