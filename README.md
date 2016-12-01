@@ -43,3 +43,19 @@ How to install:
 pip install package_name
 
 easy_install package_name
+
+## Sample Output
+
+```
+python ssl_certificate_enumerator.py -t google.com -p 443
+Target Host: google.com
+Target Port: 443
+Issued By: Google Internet Authority G2
+Issued To: *.google.com
+Valid From: 2016-11-10 15:46:09
+Validity Expiry: 2017-02-02 15:31:00
+Certificate Expired: No
+Certificate Serial Number: 5609270954427525428
+Signature Algorithm: sha256WithRSAEncryption
+Certificate Version: 2
+```
