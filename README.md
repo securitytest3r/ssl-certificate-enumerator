@@ -57,5 +57,6 @@ Validity Expiry: 2017-02-02 15:31:00
 Certificate Expired: No
 Certificate Serial Number: 5609270954427525428
 Signature Algorithm: sha256WithRSAEncryption
+Signature Algorithm: 2048
 Certificate Version: 2
 ```
