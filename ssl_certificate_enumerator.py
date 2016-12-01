@@ -166,7 +166,7 @@ if args.target and args.port:
 		print "Certificate Expired: No"
 	print "Certificate Serial Number: %d" % (certicate_info.get_serial_number())
 	print "Signature Algorithm: %s" % (certicate_info.get_signature_algorithm())
-	print "Signature Algorithm: %s" % (certicate_info.get_pubkey().bits())
+	print "Key Length: %s" % (certicate_info.get_pubkey().bits())
 	print "Certificate Version: %d" % (certicate_info.get_version())
 	#print "Public Key: %s" % ((certicate_info.get_pubkey()).type())
 	#print ": %s" % (certicate_info.)
